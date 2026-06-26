@@ -1,0 +1,19 @@
+name: LexiBar
+targets:
+  LexiBar:
+    type: application
+    platform: macOS
+    deploymentTarget: "13.0"
+    sources:
+      - LexiBar
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.siya.LexiBar
+      GENERATE_INFOPLIST_FILE: YES
+      INFOPLIST_KEY_LSUIElement: YES
+      INFOPLIST_KEY_NSHumanReadableCopyright: ""
+    dependencies:
+      - package: KeyboardShortcuts
+packages:
+  KeyboardShortcuts:
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    from: 2.0.0

@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		143E7D28BD58C36908E3008D /* Prompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783BECBDDBB6B65359871F0 /* Prompts.swift */; };
+		2BA474F7E33BED04E2F5AFBA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26604A7B5CAD815867581297 /* SettingsView.swift */; };
+		5589EA642957D050F5EFEBDD /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B882E75B7E74DA628B0DF /* FloatingPanel.swift */; };
+		88049CEE8DEBA5E90F073D5B /* LexiBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE3218AC381FF76A9AA723 /* LexiBarApp.swift */; };
+		9EF26AB55CB410BF83B9BD36 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 9EF9A823AC79A37D57D31255 /* KeyboardShortcuts */; };
+		B335BFC5079CDBB5B521F0E4 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EE9CF37E55EDEB2CB6012 /* StatusBarController.swift */; };
+		B3C84E2705DBEFBE48F55423 /* GlobalShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7574B79ACFEB99A2EDACB8CA /* GlobalShortcut.swift */; };
+		B491244E890F855FA54D46E6 /* TextGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386613B683AE429269DF42AF /* TextGrabber.swift */; };
+		BA61C095483E80B54447BA10 /* AccessibilityTextGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DC8D8646C9E3F380E40603 /* AccessibilityTextGrabber.swift */; };
+		DF8FCBCECB9C7F4DA7782CCE /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AFFC5EFE4D322F86416586 /* SettingsWindowController.swift */; };
+		F0908917A3E12C6AD8121981 /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6965E9BAA5A2D68CA4415 /* LLMService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		26604A7B5CAD815867581297 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		386613B683AE429269DF42AF /* TextGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGrabber.swift; sourceTree = "<group>"; };
+		39DC8D8646C9E3F380E40603 /* AccessibilityTextGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityTextGrabber.swift; sourceTree = "<group>"; };
+		460EE9CF37E55EDEB2CB6012 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		73AFFC5EFE4D322F86416586 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		7574B79ACFEB99A2EDACB8CA /* GlobalShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalShortcut.swift; sourceTree = "<group>"; };
+		8ECE3218AC381FF76A9AA723 /* LexiBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexiBarApp.swift; sourceTree = "<group>"; };
+		9CD6965E9BAA5A2D68CA4415 /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
+		E783BECBDDBB6B65359871F0 /* Prompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompts.swift; sourceTree = "<group>"; };
+		EA6B882E75B7E74DA628B0DF /* FloatingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPanel.swift; sourceTree = "<group>"; };
+		FD2A157ACFA61B35EEB77AE6 /* LexiBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LexiBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5497D0F76DA6F8684455D468 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EF26AB55CB410BF83B9BD36 /* KeyboardShortcuts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3083071BA4AA13AC1ABEE855 /* LexiBar */ = {
+			isa = PBXGroup;
+			children = (
+				39DC8D8646C9E3F380E40603 /* AccessibilityTextGrabber.swift */,
+				EA6B882E75B7E74DA628B0DF /* FloatingPanel.swift */,
+				7574B79ACFEB99A2EDACB8CA /* GlobalShortcut.swift */,
+				8ECE3218AC381FF76A9AA723 /* LexiBarApp.swift */,
+				9CD6965E9BAA5A2D68CA4415 /* LLMService.swift */,
+				E783BECBDDBB6B65359871F0 /* Prompts.swift */,
+				26604A7B5CAD815867581297 /* SettingsView.swift */,
+				73AFFC5EFE4D322F86416586 /* SettingsWindowController.swift */,
+				460EE9CF37E55EDEB2CB6012 /* StatusBarController.swift */,
+				386613B683AE429269DF42AF /* TextGrabber.swift */,
+			);
+			path = LexiBar;
+			sourceTree = "<group>";
+		};
+		DCF9826A09152A716269F74E = {
+			isa = PBXGroup;
+			children = (
+				3083071BA4AA13AC1ABEE855 /* LexiBar */,
+				FB4DECA7B873AF5B5FE3909E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB4DECA7B873AF5B5FE3909E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD2A157ACFA61B35EEB77AE6 /* LexiBar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA358A53109CB91247B3B5EC /* LexiBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88B53F3B7E776BEF64FF465E /* Build configuration list for PBXNativeTarget "LexiBar" */;
+			buildPhases = (
+				530FFCBF00B217A8599E1493 /* Sources */,
+				5497D0F76DA6F8684455D468 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LexiBar;
+			packageProductDependencies = (
+				9EF9A823AC79A37D57D31255 /* KeyboardShortcuts */,
+			);
+			productName = LexiBar;
+			productReference = FD2A157ACFA61B35EEB77AE6 /* LexiBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F8CA1E3554C40E40FF87B06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 0B5C029673C0AE65A5A0912A /* Build configuration list for PBXProject "LexiBar" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = DCF9826A09152A716269F74E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				62298656FDC6E825E34E3546 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = FB4DECA7B873AF5B5FE3909E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA358A53109CB91247B3B5EC /* LexiBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		530FFCBF00B217A8599E1493 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA61C095483E80B54447BA10 /* AccessibilityTextGrabber.swift in Sources */,
+				5589EA642957D050F5EFEBDD /* FloatingPanel.swift in Sources */,
+				B3C84E2705DBEFBE48F55423 /* GlobalShortcut.swift in Sources */,
+				F0908917A3E12C6AD8121981 /* LLMService.swift in Sources */,
+				88049CEE8DEBA5E90F073D5B /* LexiBarApp.swift in Sources */,
+				143E7D28BD58C36908E3008D /* Prompts.swift in Sources */,
+				2BA474F7E33BED04E2F5AFBA /* SettingsView.swift in Sources */,
+				DF8FCBCECB9C7F4DA7782CCE /* SettingsWindowController.swift in Sources */,
+				B335BFC5079CDBB5B521F0E4 /* StatusBarController.swift in Sources */,
+				B491244E890F855FA54D46E6 /* TextGrabber.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		380FA876FE82D99FEAF854F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.siya.LexiBar;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3FFA6F649C7180BABF202D35 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4F6E67123C7F4E0DEF7C91D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DD069A294DC0C3A697A9B024 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.siya.LexiBar;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B5C029673C0AE65A5A0912A /* Build configuration list for PBXProject "LexiBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FFA6F649C7180BABF202D35 /* Debug */,
+				4F6E67123C7F4E0DEF7C91D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		88B53F3B7E776BEF64FF465E /* Build configuration list for PBXNativeTarget "LexiBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				380FA876FE82D99FEAF854F0 /* Debug */,
+				DD069A294DC0C3A697A9B024 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		62298656FDC6E825E34E3546 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9EF9A823AC79A37D57D31255 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62298656FDC6E825E34E3546 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 4F8CA1E3554C40E40FF87B06 /* Project object */;
+}
