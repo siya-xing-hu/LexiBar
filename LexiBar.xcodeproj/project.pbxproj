@@ -12,11 +12,9 @@
 		5589EA642957D050F5EFEBDD /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B882E75B7E74DA628B0DF /* FloatingPanel.swift */; };
 		88049CEE8DEBA5E90F073D5B /* LexiBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE3218AC381FF76A9AA723 /* LexiBarApp.swift */; };
 		9EF26AB55CB410BF83B9BD36 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 9EF9A823AC79A37D57D31255 /* KeyboardShortcuts */; };
-		B335BFC5079CDBB5B521F0E4 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EE9CF37E55EDEB2CB6012 /* StatusBarController.swift */; };
 		B3C84E2705DBEFBE48F55423 /* GlobalShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7574B79ACFEB99A2EDACB8CA /* GlobalShortcut.swift */; };
 		B491244E890F855FA54D46E6 /* TextGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386613B683AE429269DF42AF /* TextGrabber.swift */; };
 		BA61C095483E80B54447BA10 /* AccessibilityTextGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DC8D8646C9E3F380E40603 /* AccessibilityTextGrabber.swift */; };
-		DF8FCBCECB9C7F4DA7782CCE /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AFFC5EFE4D322F86416586 /* SettingsWindowController.swift */; };
 		F0908917A3E12C6AD8121981 /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD6965E9BAA5A2D68CA4415 /* LLMService.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,8 +22,6 @@
 		26604A7B5CAD815867581297 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		386613B683AE429269DF42AF /* TextGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGrabber.swift; sourceTree = "<group>"; };
 		39DC8D8646C9E3F380E40603 /* AccessibilityTextGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityTextGrabber.swift; sourceTree = "<group>"; };
-		460EE9CF37E55EDEB2CB6012 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
-		73AFFC5EFE4D322F86416586 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 		7574B79ACFEB99A2EDACB8CA /* GlobalShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalShortcut.swift; sourceTree = "<group>"; };
 		8ECE3218AC381FF76A9AA723 /* LexiBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexiBarApp.swift; sourceTree = "<group>"; };
 		9CD6965E9BAA5A2D68CA4415 /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
@@ -56,8 +52,6 @@
 				9CD6965E9BAA5A2D68CA4415 /* LLMService.swift */,
 				E783BECBDDBB6B65359871F0 /* Prompts.swift */,
 				26604A7B5CAD815867581297 /* SettingsView.swift */,
-				73AFFC5EFE4D322F86416586 /* SettingsWindowController.swift */,
-				460EE9CF37E55EDEB2CB6012 /* StatusBarController.swift */,
 				386613B683AE429269DF42AF /* TextGrabber.swift */,
 			);
 			path = LexiBar;
@@ -146,8 +140,6 @@
 				88049CEE8DEBA5E90F073D5B /* LexiBarApp.swift in Sources */,
 				143E7D28BD58C36908E3008D /* Prompts.swift in Sources */,
 				2BA474F7E33BED04E2F5AFBA /* SettingsView.swift in Sources */,
-				DF8FCBCECB9C7F4DA7782CCE /* SettingsWindowController.swift in Sources */,
-				B335BFC5079CDBB5B521F0E4 /* StatusBarController.swift in Sources */,
 				B491244E890F855FA54D46E6 /* TextGrabber.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

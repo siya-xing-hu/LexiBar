@@ -14,10 +14,8 @@ struct LexiBarApp: App {
 }
 
 class AppDelegate: NSObject, NSApplicationDelegate {
-    var statusBarController: StatusBarController?
-
     func applicationDidFinishLaunching(_ notification: Notification) {
-        statusBarController = StatusBarController()
+        FloatingPanelManager.shared.setupStatusItem()
         GlobalShortcut.setup()
     }
 }

@@ -4,17 +4,41 @@ import AppKit
 @MainActor
 final class FloatingPanelManager {
     static let shared = FloatingPanelManager()
-    private var panel: NSPanel?
-    private var viewModel = FloatingPanelViewModel()
-    private var autoCloseTimer: Timer?
+    private var statusItem: NSStatusItem?
+    private var popover: NSPopover?
+    private let viewModel = FloatingPanelViewModel()
+
+    func setupStatusItem() {
+        guard statusItem == nil else { return }
+        let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        item.button?.title = "📖"
+        item.button?.target = self
+        item.button?.action = #selector(togglePopover)
+        item.button?.sendAction(on: [.leftMouseUp])
+        statusItem = item
+
+        let pop = NSPopover()
+        pop.contentSize = NSSize(width: 380, height: 500)
+        pop.behavior = .transient
+        pop.contentViewController = NSHostingController(rootView: FloatingPanelView(viewModel: self.viewModel))
+        popover = pop
+    }
+
+    @objc private func togglePopover() {
+        guard let button = statusItem?.button, let popover = popover else { return }
+        if popover.isShown {
+            popover.performClose(nil)
+        } else {
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+        }
+    }
 
     func show() {
-        if panel == nil {
-            createPanel()
+        guard let button = statusItem?.button, let popover = popover else { return }
+        viewModel.page = .explain
+        if !popover.isShown {
+            popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         }
-        panel?.makeKeyAndOrderFront(nil)
-        NSApp.activate(ignoringOtherApps: true)
-        startAutoCloseTimer()
     }
 
     func showWithGrabbedText() {
@@ -22,37 +46,13 @@ final class FloatingPanelManager {
         let text = (pasteboard.string(forType: .string) ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
         viewModel.input = text
         viewModel.errorMessage = nil
+        viewModel.page = .explain
         show()
         if !text.isEmpty {
             viewModel.translate()
         } else {
             viewModel.errorMessage = "剪贴板为空。请先选中文字按 Cmd+C 复制，再触发 LexiBar。"
         }
-    }
-
-    private func startAutoCloseTimer() {
-        autoCloseTimer?.invalidate()
-        autoCloseTimer = Timer.scheduledTimer(withTimeInterval: 60, repeats: false) { [weak self] _ in
-            DispatchQueue.main.async {
-                self?.panel?.orderOut(nil)
-            }
-        }
-    }
-
-    private func createPanel() {
-        let panel = NSPanel(
-            contentRect: NSRect(x: 0, y: 0, width: 520, height: 420),
-            styleMask: [.nonactivatingPanel, .titled, .closable, .resizable, .fullSizeContentView],
-            backing: .buffered,
-            defer: false
-        )
-        panel.title = "LexiBar"
-        panel.titlebarAppearsTransparent = true
-        panel.isFloatingPanel = true
-        panel.level = .floating
-        panel.center()
-        panel.contentView = NSHostingView(rootView: FloatingPanelView(viewModel: self.viewModel))
-        self.panel = panel
     }
 }
 
@@ -62,6 +62,12 @@ final class FloatingPanelViewModel: ObservableObject {
     @Published var result = ""
     @Published var isLoading = false
     @Published var errorMessage: String?
+    @Published var page: Page = .explain
+
+    enum Page {
+        case explain
+        case settings
+    }
 
     func translate() {
         NSLog("[LexiBar] translate() called, input: \(input.prefix(50))")
@@ -102,35 +108,51 @@ struct FloatingPanelView: View {
     @StateObject var viewModel: FloatingPanelViewModel
 
     var body: some View {
-        VStack(spacing: 12) {
-            HStack {
-                Text("LexiBar")
-                    .font(.headline)
+        VStack(spacing: 0) {
+            HStack(spacing: 16) {
+                tabButton("解释", page: .explain)
+                tabButton("设置", page: .settings)
                 Spacer()
-                Button(action: {
-                    SettingsWindowController.shared.show()
-                }) {
-                    Image(systemName: "gearshape")
-                }
-                .buttonStyle(.borderless)
-                .help("设置")
-
-                Button(action: {
-                    NSApp.terminate(nil)
-                }) {
+                Button(action: { NSApp.terminate(nil) }) {
                     Image(systemName: "power")
                 }
                 .buttonStyle(.borderless)
                 .help("退出")
             }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 10)
+            Divider()
 
+            if viewModel.page == .explain {
+                ExplainPage(viewModel: viewModel)
+            } else {
+                SettingsView()
+            }
+        }
+        .frame(width: 380, height: 500)
+    }
+
+    private func tabButton(_ title: String, page: FloatingPanelViewModel.Page) -> some View {
+        Button(title) {
+            viewModel.page = page
+        }
+        .buttonStyle(.plain)
+        .font(viewModel.page == page ? .system(size: 13, weight: .semibold) : .system(size: 13))
+        .foregroundColor(viewModel.page == page ? .accentColor : .secondary)
+    }
+}
+
+struct ExplainPage: View {
+    @StateObject var viewModel: FloatingPanelViewModel
+
+    var body: some View {
+        VStack(spacing: 10) {
             TextField("输入一句话...", text: $viewModel.input, axis: .vertical)
                 .textFieldStyle(.roundedBorder)
                 .lineLimit(3...6)
 
             HStack {
                 Button("解释") {
-                    NSLog("[LexiBar] 解释 button clicked")
                     viewModel.translate()
                 }
                 .disabled(viewModel.isLoading)
@@ -155,7 +177,6 @@ struct FloatingPanelView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .id("result")
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .onChange(of: viewModel.result) { _ in
                     withAnimation {
                         proxy.scrollTo("result", anchor: .bottom)
@@ -163,7 +184,7 @@ struct FloatingPanelView: View {
                 }
             }
         }
-        .padding()
-        .frame(minWidth: 400, minHeight: 300)
+        .padding(14)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
