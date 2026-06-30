@@ -12,6 +12,7 @@
 		5589EA642957D050F5EFEBDD /* FloatingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6B882E75B7E74DA628B0DF /* FloatingPanel.swift */; };
 		88049CEE8DEBA5E90F073D5B /* LexiBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE3218AC381FF76A9AA723 /* LexiBarApp.swift */; };
 		9EF26AB55CB410BF83B9BD36 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 9EF9A823AC79A37D57D31255 /* KeyboardShortcuts */; };
+		ABFAC0C76C2A718DBC361AA8 /* HistoryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F0583ED73A8B8A9B893A36 /* HistoryStore.swift */; };
 		B3C84E2705DBEFBE48F55423 /* GlobalShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7574B79ACFEB99A2EDACB8CA /* GlobalShortcut.swift */; };
 		B491244E890F855FA54D46E6 /* TextGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386613B683AE429269DF42AF /* TextGrabber.swift */; };
 		BA61C095483E80B54447BA10 /* AccessibilityTextGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DC8D8646C9E3F380E40603 /* AccessibilityTextGrabber.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		26604A7B5CAD815867581297 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		28F0583ED73A8B8A9B893A36 /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
 		386613B683AE429269DF42AF /* TextGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGrabber.swift; sourceTree = "<group>"; };
 		39DC8D8646C9E3F380E40603 /* AccessibilityTextGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityTextGrabber.swift; sourceTree = "<group>"; };
 		7574B79ACFEB99A2EDACB8CA /* GlobalShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalShortcut.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 				39DC8D8646C9E3F380E40603 /* AccessibilityTextGrabber.swift */,
 				EA6B882E75B7E74DA628B0DF /* FloatingPanel.swift */,
 				7574B79ACFEB99A2EDACB8CA /* GlobalShortcut.swift */,
+				28F0583ED73A8B8A9B893A36 /* HistoryStore.swift */,
 				8ECE3218AC381FF76A9AA723 /* LexiBarApp.swift */,
 				9CD6965E9BAA5A2D68CA4415 /* LLMService.swift */,
 				E783BECBDDBB6B65359871F0 /* Prompts.swift */,
@@ -136,6 +139,7 @@
 				BA61C095483E80B54447BA10 /* AccessibilityTextGrabber.swift in Sources */,
 				5589EA642957D050F5EFEBDD /* FloatingPanel.swift in Sources */,
 				B3C84E2705DBEFBE48F55423 /* GlobalShortcut.swift in Sources */,
+				ABFAC0C76C2A718DBC361AA8 /* HistoryStore.swift in Sources */,
 				F0908917A3E12C6AD8121981 /* LLMService.swift in Sources */,
 				88049CEE8DEBA5E90F073D5B /* LexiBarApp.swift in Sources */,
 				143E7D28BD58C36908E3008D /* Prompts.swift in Sources */,

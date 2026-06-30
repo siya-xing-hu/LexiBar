@@ -1,4 +1,5 @@
 import SwiftUI
+import KeyboardShortcuts
 
 final class SettingsStore {
     static let shared = SettingsStore()
@@ -29,6 +30,10 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
+            Section("快捷键") {
+                KeyboardShortcuts.Recorder("触发 LexiBar", name: .toggleLexiBar)
+            }
+
             Section("模型") {
                 Picker("服务商", selection: $providerRaw) {
                     ForEach(LLMProvider.allCases) { provider in

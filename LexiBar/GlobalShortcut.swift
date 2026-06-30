@@ -1,7 +1,7 @@
 import KeyboardShortcuts
 
 extension KeyboardShortcuts.Name {
-    static let toggleLexiBar = Self("toggleLexiBar", default: .init(.l, modifiers: [.control, .option]))
+    static let toggleLexiBar = Self("toggleLexiBar", default: .init(.l, modifiers: [.command]))
 }
 
 enum GlobalShortcut {

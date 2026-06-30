@@ -66,6 +66,7 @@ final class FloatingPanelViewModel: ObservableObject {
 
     enum Page {
         case explain
+        case history
         case settings
     }
 
@@ -81,6 +82,7 @@ final class FloatingPanelViewModel: ObservableObject {
 
         let settings = SettingsStore.shared.llmSettings
         NSLog("[LexiBar] settings: provider=\(settings.provider), baseURL=\(settings.baseURL), model=\(settings.model), apiKeyEmpty=\(settings.apiKey.isEmpty)")
+        let capturedInput = input
         LLMService.stream(
             settings: settings,
             input: input,
@@ -97,7 +99,16 @@ final class FloatingPanelViewModel: ObservableObject {
             },
             onComplete: { [weak self] in
                 DispatchQueue.main.async {
-                    self?.isLoading = false
+                    guard let self = self else { return }
+                    self.isLoading = false
+                    if !self.result.isEmpty {
+                        HistoryStore.shared.add(HistoryRecord(
+                            input: capturedInput,
+                            result: self.result,
+                            provider: settings.provider.rawValue,
+                            model: settings.model
+                        ))
+                    }
                 }
             }
         )
@@ -111,6 +122,7 @@ struct FloatingPanelView: View {
         VStack(spacing: 0) {
             HStack(spacing: 16) {
                 tabButton("解释", page: .explain)
+                tabButton("历史", page: .history)
                 tabButton("设置", page: .settings)
                 Spacer()
                 Button(action: { NSApp.terminate(nil) }) {
@@ -123,9 +135,12 @@ struct FloatingPanelView: View {
             .padding(.vertical, 10)
             Divider()
 
-            if viewModel.page == .explain {
+            switch viewModel.page {
+            case .explain:
                 ExplainPage(viewModel: viewModel)
-            } else {
+            case .history:
+                HistoryPage()
+            case .settings:
                 SettingsView()
             }
         }
@@ -186,5 +201,169 @@ struct ExplainPage: View {
         }
         .padding(14)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    }
+}
+
+struct HistoryPage: View {
+    @ObservedObject private var store = HistoryStore.shared
+    @State private var selectedID: HistoryRecord.ID?
+    @State private var showClearConfirm = false
+
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Text("\(store.records.count) 条记录")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                Spacer()
+                Button(role: .destructive) {
+                    showClearConfirm = true
+                } label: {
+                    Label("清空", systemImage: "trash")
+                }
+                .buttonStyle(.borderless)
+                .disabled(store.records.isEmpty)
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 8)
+            Divider()
+
+            if store.records.isEmpty {
+                Spacer()
+                Text("暂无记录")
+                    .foregroundColor(.secondary)
+                Spacer()
+            } else {
+                List(selection: $selectedID) {
+                    ForEach(store.records) { record in
+                        HistoryRow(record: record)
+                            .tag(record.id)
+                            .contentShape(Rectangle())
+                            .onTapGesture {
+                                selectedID = record.id
+                            }
+                    }
+                }
+                .listStyle(.plain)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+        }
+        .confirmationDialog(
+            "确定清空所有历史记录吗？此操作不可撤销。",
+            isPresented: $showClearConfirm,
+            titleVisibility: .visible
+        ) {
+            Button("清空", role: .destructive) {
+                store.clearAll()
+            }
+            Button("取消", role: .cancel) {}
+        }
+        .sheet(item: Binding(
+            get: { store.records.first { $0.id == selectedID } },
+            set: { if $0 == nil { selectedID = nil } }
+        )) { record in
+            HistoryDetailSheet(record: record)
+        }
+    }
+}
+
+struct HistoryDetailSheet: View {
+    let record: HistoryRecord
+    @Environment(\.dismiss) private var dismiss
+
+    private let dateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .medium
+        f.timeStyle = .medium
+        return f
+    }()
+
+    var body: some View {
+        VStack(spacing: 0) {
+            HStack {
+                Text("历史详情")
+                    .font(.headline)
+                Spacer()
+                Button("关闭") { dismiss() }
+                    .keyboardShortcut(.escape)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 12)
+            Divider()
+
+            ScrollView {
+                VStack(alignment: .leading, spacing: 14) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("时间")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text(dateFormatter.string(from: record.timestamp))
+                            .font(.system(size: 12))
+                    }
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("模型")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text("\(record.provider) · \(record.model)")
+                            .font(.system(size: 12))
+                    }
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("输入")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text(record.input)
+                            .font(.system(size: 13))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(8)
+                            .background(Color(nsColor: .textBackgroundColor))
+                            .cornerRadius(6)
+                    }
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("结果")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                        Text(record.result)
+                            .font(.system(size: 13))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .textSelection(.enabled)
+                    }
+                }
+                .padding(16)
+            }
+        }
+        .frame(width: 480, height: 520)
+    }
+}
+
+struct HistoryRow: View {
+    let record: HistoryRecord
+
+    private let dateFormatter: DateFormatter = {
+        let f = DateFormatter()
+        f.dateStyle = .short
+        f.timeStyle = .short
+        return f
+    }()
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack {
+                Text(record.input.prefix(60))
+                    .font(.system(size: 12, weight: .medium))
+                    .lineLimit(1)
+                Spacer()
+                Text(dateFormatter.string(from: record.timestamp))
+                    .font(.caption2)
+                    .foregroundColor(.secondary)
+            }
+            Text(record.result.prefix(120))
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .lineLimit(2)
+        }
+        .padding(.vertical, 4)
     }
 }
