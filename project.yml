@@ -6,6 +6,14 @@ targets:
     deploymentTarget: "13.0"
     sources:
       - LexiBar
+    info:
+      path: LexiBar/Info.plist
+      properties:
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
+          NSExceptionDomains:
+            host.docker.internal:
+              NSExceptionAllowsInsecureHTTPLoads: true
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.siya.LexiBar
       GENERATE_INFOPLIST_FILE: YES

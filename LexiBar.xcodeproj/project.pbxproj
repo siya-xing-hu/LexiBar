@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1693554D0424A32CA9B4A351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		26604A7B5CAD815867581297 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		28F0583ED73A8B8A9B893A36 /* HistoryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStore.swift; sourceTree = "<group>"; };
 		386613B683AE429269DF42AF /* TextGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGrabber.swift; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 				EA6B882E75B7E74DA628B0DF /* FloatingPanel.swift */,
 				7574B79ACFEB99A2EDACB8CA /* GlobalShortcut.swift */,
 				28F0583ED73A8B8A9B893A36 /* HistoryStore.swift */,
+				1693554D0424A32CA9B4A351 /* Info.plist */,
 				8ECE3218AC381FF76A9AA723 /* LexiBarApp.swift */,
 				9CD6965E9BAA5A2D68CA4415 /* LLMService.swift */,
 				E783BECBDDBB6B65359871F0 /* Prompts.swift */,
@@ -157,6 +159,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LexiBar/Info.plist;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -292,6 +295,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LexiBar/Info.plist;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (

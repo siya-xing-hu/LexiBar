@@ -16,8 +16,9 @@
 第一次用，点浮窗右上角 ⚙️ 进设置，填：
 
 - API Key（支持 OpenAI / Anthropic）
+- API 格式（OpenAI 兼容格式 / OpenAI Responses / Anthropic）
 - 模型名
-- Base URL（默认 OpenAI）
+- Base URL（OpenAI 默认 `https://api.openai.com/v1`；选择 OpenAI Responses 时自动追加 `/responses`）
 
 快捷键也能在设置里改。
 
@@ -41,6 +42,14 @@ open build/LexiBar.app
 ```bash
 xcodegen generate
 open LexiBar.xcodeproj
+```
+
+## 验证
+
+运行 LLM 接口回归测试（使用内存模拟响应，无需 API Key 或网络）：
+
+```bash
+./Tests/run-llm-regressions.sh
 ```
 
 ## 项目结构

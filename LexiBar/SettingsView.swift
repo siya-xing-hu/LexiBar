@@ -35,13 +35,14 @@ struct SettingsView: View {
             }
 
             Section("模型") {
-                Picker("服务商", selection: $providerRaw) {
+                Picker("API 格式", selection: $providerRaw) {
                     ForEach(LLMProvider.allCases) { provider in
                         Text(provider.rawValue).tag(provider.rawValue)
                     }
                 }
 
                 TextField("API 地址", text: $baseURL)
+                    .help("填写基础地址，例如 https://api.openai.com/v1；请求路径会按 API 格式自动追加。")
                 TextField("模型", text: $model)
             }
 
@@ -52,6 +53,12 @@ struct SettingsView: View {
             Section("参数") {
                 Slider(value: $temperature, in: 0...2, step: 0.1) {
                     Text("Temperature: \(temperature, specifier: "%.1f")")
+                }
+                .disabled(providerRaw == LLMProvider.openAIResponses.rawValue)
+                if providerRaw == LLMProvider.openAIResponses.rawValue {
+                    Text("Responses 使用模型默认采样参数，不发送 Temperature。")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
                 }
             }
         }
